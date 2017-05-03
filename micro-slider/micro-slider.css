@@ -70,17 +70,19 @@ a,a:link,a:visited {
 
 .micro-slider {
     height: 480px;
-    margin:64px 0;
+    margin: 64px 0;
     position: relative;
     width: 100%;
 }
 
 .micro-slider.fullwidth {
+    height: 480px;
     margin: 64px 0;
 }
 
 .micro-slider.fullwidth .slider-item {
-    line-height: 320px;
+    height: 480px;
+    line-height: 480px;
     width: 100%
 }
 
