@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script type="text/javascript">
+            function login(username, password) {
+              var json = JSON.stringify({ username: username, password: password });
+
+              var req = new XMLHttpRequest();
+              req.open('POST', 'https://reqres.in/api/login');
+              req.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+              req.onreadystatechange = function () {
+                if(req.readyState === 4 && req.status === 200) {
+                  location.href = '/index.html';
+                }
+              };
+              req.send(json);
+            }
+
+            document.body.onload = function () {
+              document.getElementById('login-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                var u = document.getElementById('username');
+                var p = document.getElementById('password');
+                login(u.value, p.value);
+              });
+            }
+        </script>
+        <form id="login-form" method="post">
+            <input id="username" type="text" name="username" placeholder="Username" />
+            <input id="password" type="password" name="password" placeholder="Password" />
+            <input type="submit" value="Submit" />
+        </form>
+    </body>
+</html>
